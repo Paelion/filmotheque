@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <ul>
+                    {% for serie in series %}
+                        <li {{serie.id}}>{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }} </li><br>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="col-6">
+                {{form_start(formSerie)}}
+                {{form_end(formSerie)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

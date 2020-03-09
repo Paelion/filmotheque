@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+
+                {% for serie in series %}
+                    <li> {{ series |length }}</li>
+                {% endfor %}
+                <a href="{{ path('series') }}">
+                    <button class="btn btn-warning">Page Series</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
