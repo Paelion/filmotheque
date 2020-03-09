@@ -7,4 +7,5 @@ return [
     'filmotheque' => [[], ['_controller' => 'App\\Controller\\FilmothequeController::index'], [], [['text', '/']], [], []],
     'accueil' => [[], ['_controller' => 'App\\Controller\\FilmothequeController::accueil'], [], [['text', '/']], [], []],
     'series' => [[], ['_controller' => 'App\\Controller\\FilmothequeController::series'], [], [['text', '/series']], [], []],
+    'singleSerie' => [['id'], ['_controller' => 'App\\Controller\\FilmothequeController::singleSerie'], [], [['text', '}'], ['variable', '', '[^/]+', 'id', true], ['text', '/singleSerie/{']], [], []],
 ];

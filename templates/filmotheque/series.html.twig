@@ -7,7 +7,7 @@
             <div class="col-6">
                 <ul>
                     {% for serie in series %}
-                        <li {{serie.id}}>{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }} </li><br>
+                        <li {{serie.id}}><a href="{{ path('singleSerie', {id: serie.id})}}">{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }}</a> </li><br>
                     {% endfor %}
                 </ul>
 

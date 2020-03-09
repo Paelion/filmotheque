@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-6">
 
-                {% for serie in series %}
-                    <li> {{ series |length }}</li>
-                {% endfor %}
+
+                    <p> Il y a {{ series |length }} series dans la filmothèque.</p>
+
                 <a href="{{ path('series') }}">
                     <button class="btn btn-warning">Page Series</button>
                 </a>

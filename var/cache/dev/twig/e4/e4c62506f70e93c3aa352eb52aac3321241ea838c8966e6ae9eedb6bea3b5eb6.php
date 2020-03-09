@@ -58,7 +58,6 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 <body>
 <header>
     <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
-        <a class=\"navbar-brand\" href=\"#\">Navbar</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
@@ -66,13 +65,13 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
             <ul class=\"navbar-nav\">
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"";
-        // line 19
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("filmotheque");
         echo "\">Séries</a>
                 </li>
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"";
-        // line 22
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
         echo "\">Catégories</a>
                 </li>
@@ -82,14 +81,14 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 </header>
 <main>
     ";
-        // line 29
+        // line 28
         $this->displayBlock('body', $context, $blocks);
-        // line 30
+        // line 29
         echo "</main>
 ";
-        // line 31
+        // line 30
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 32
+        // line 31
         echo "</body>
 </html>
 ";
@@ -123,7 +122,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 29
+    // line 28
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -135,7 +134,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 31
+    // line 30
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -159,7 +158,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     public function getDebugInfo()
     {
-        return array (  139 => 31,  127 => 29,  115 => 7,  102 => 5,  93 => 32,  91 => 31,  88 => 30,  86 => 29,  76 => 22,  70 => 19,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
+        return array (  138 => 30,  126 => 28,  114 => 7,  101 => 5,  92 => 31,  90 => 30,  87 => 29,  85 => 28,  75 => 21,  69 => 18,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -175,7 +174,6 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 <body>
 <header>
     <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
-        <a class=\"navbar-brand\" href=\"#\">Navbar</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>

@@ -74,4 +74,25 @@ class FilmothequeController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/singleSerie/{{id}}", name="singleSerie")
+     */
+    public function singleSerie( $id, Request $request, EntityManagerInterface $entityManager){
+
+
+        $serie = $this->getDoctrine()
+            ->getRepository(Series::class)
+            ->find($id);
+
+
+            $entityManager->persist($serie);
+            $entityManager->flush();
+
+        return $this->render('filmotheque/singleSerie.html.twig', [
+            'series' => $serie
+
+        ]);
+    }
+
 }

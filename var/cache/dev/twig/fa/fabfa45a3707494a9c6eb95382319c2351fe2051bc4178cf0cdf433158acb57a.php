@@ -61,22 +61,14 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
         <div class=\"row\">
             <div class=\"col-6\">
 
-                ";
-        // line 9
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 9, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["serie"]) {
-            // line 10
-            echo "                    <li> ";
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })())), "html", null, true);
-            echo "</li>
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['serie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+
+                    <p> Il y a ";
+        // line 10
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })())), "html", null, true);
+        echo " series dans la filmothèque.</p>
+
+                <a href=\"";
         // line 12
-        echo "                <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("series");
         echo "\">
                     <button class=\"btn btn-warning\">Page Series</button>
@@ -102,7 +94,7 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
 
     public function getDebugInfo()
     {
-        return array (  79 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  72 => 12,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -115,9 +107,9 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
         <div class=\"row\">
             <div class=\"col-6\">
 
-                {% for serie in series %}
-                    <li> {{ series |length }}</li>
-                {% endfor %}
+
+                    <p> Il y a {{ series |length }} series dans la filmothèque.</p>
+
                 <a href=\"{{ path('series') }}\">
                     <button class=\"btn btn-warning\">Page Series</button>
                 </a>

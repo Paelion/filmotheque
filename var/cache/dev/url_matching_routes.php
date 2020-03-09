@@ -17,11 +17,13 @@ return [
     [ // $regexpList
         0 => '{^(?'
                 .'|/_error/(\\d+)(?:\\.([^/]++))?(*:35)'
+                .'|/singleSerie/\\{([^/]+)\\}(*:66)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
-        35 => [
-            [['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null],
+        35 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        66 => [
+            [['_route' => 'singleSerie', '_controller' => 'App\\Controller\\FilmothequeController::singleSerie'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

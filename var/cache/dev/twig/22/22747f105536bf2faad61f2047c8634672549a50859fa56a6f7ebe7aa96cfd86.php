@@ -69,7 +69,9 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             // line 10
             echo "                        <li ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 10), "html", null, true);
-            echo ">";
+            echo "><a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("singleSerie", ["id" => twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 10)]), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "nom", [], "any", false, false, false, 10)), "html", null, true);
             echo "<br>Produite de ";
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeDebut", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
@@ -77,7 +79,7 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeFin", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
             echo "<br>Nombre de saisons : ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "saisons", [], "any", false, false, false, 10), "html", null, true);
-            echo " </li><br>
+            echo "</a> </li><br>
                     ";
         }
         $_parent = $context['_parent'];
@@ -117,7 +119,7 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
 
     public function getDebugInfo()
     {
-        return array (  97 => 17,  93 => 16,  87 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  99 => 17,  95 => 16,  89 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -131,7 +133,7 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             <div class=\"col-6\">
                 <ul>
                     {% for serie in series %}
-                        <li {{serie.id}}>{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }} </li><br>
+                        <li {{serie.id}}><a href=\"{{ path('singleSerie', {id: serie.id})}}\">{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }}</a> </li><br>
                     {% endfor %}
                 </ul>
 
