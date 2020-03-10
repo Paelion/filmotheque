@@ -20,7 +20,7 @@ class SerieType extends AbstractType
             ->add('anneeFin', DateTimeType::class)
             //->add('affiche', FileType::class)
             ->add('saisons')
-            ->add('Ajouter', SubmitType::class, [
+            ->add('Envoyer', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary']
             ]);
     }

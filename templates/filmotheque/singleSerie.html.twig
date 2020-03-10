@@ -5,13 +5,16 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-6">
-                <p>Hello</p>
+                <h2>Plus de détails sur le serie : {{series.nom|capitalize}}</h2><br>
                 <ul>
-                    {% for serie in series %}
-                        <li {{serie.id}}>{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }} </li><br>
-                    {% endfor %}
+                        <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }} </div><br>
                 </ul>
 
+            </div>
+            <div class="col-6">
+                <h2>Modifier les informations de cette serie :</h2><br>
+                {{form_start(formSerie)}}
+                {{form_end(formSerie)}}
             </div>
 
         </div>

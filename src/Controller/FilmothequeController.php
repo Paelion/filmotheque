@@ -86,11 +86,27 @@ class FilmothequeController extends AbstractController
             ->find($id);
 
 
+        $form = $this->createForm(SerieType::class, $serie);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $serie = $form->getData();
+
+
+            /*$affiche = $serie->getAffiche();
+            $afficheName = md5(uniqid()).'.'.$affiche->guessExtension();
+            $affiche->move($this->getParameter('upload_files') );
+            $serie ->setAffiche($afficheName);*/
+
             $entityManager->persist($serie);
             $entityManager->flush();
 
+            $this->redirectToRoute('singleSerie');
+        }
         return $this->render('filmotheque/singleSerie.html.twig', [
-            'series' => $serie
+            'series' => $serie,
+            'formSerie' => $form->createView()
 
         ]);
     }

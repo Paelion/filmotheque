@@ -60,33 +60,34 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
-                <p>Hello</p>
+                <h2>Plus de détails sur le serie : ";
+        // line 8
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 8, $this->source); })()), "nom", [], "any", false, false, false, 8)), "html", null, true);
+        echo "</h2><br>
                 <ul>
-                    ";
+                        <div>";
         // line 10
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["serie"]) {
-            // line 11
-            echo "                        <li ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 11), "html", null, true);
-            echo ">";
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "nom", [], "any", false, false, false, 11)), "html", null, true);
-            echo "<br>Produite de ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeDebut", [], "any", false, false, false, 11), "d/m/Y "), "html", null, true);
-            echo " à ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeFin", [], "any", false, false, false, 11), "d/m/Y "), "html", null, true);
-            echo "<br>Nombre de saisons : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "saisons", [], "any", false, false, false, 11), "html", null, true);
-            echo " </li><br>
-                    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['serie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "                </ul>
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "nom", [], "any", false, false, false, 10)), "html", null, true);
+        echo "<br>Produite de ";
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "anneeDebut", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
+        echo " à ";
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "anneeFin", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
+        echo "<br>Nombre de saisons : ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "saisons", [], "any", false, false, false, 10), "html", null, true);
+        echo " </div><br>
+                </ul>
 
+            </div>
+            <div class=\"col-6\">
+                <h2>Modifier les informations de cette serie :</h2><br>
+                ";
+        // line 16
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 16, $this->source); })()), 'form_start');
+        echo "
+                ";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 17, $this->source); })()), 'form_end');
+        echo "
             </div>
 
         </div>
@@ -109,7 +110,7 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
 
     public function getDebugInfo()
     {
-        return array (  88 => 13,  71 => 11,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  89 => 17,  85 => 16,  70 => 10,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -121,13 +122,16 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
-                <p>Hello</p>
+                <h2>Plus de détails sur le serie : {{series.nom|capitalize}}</h2><br>
                 <ul>
-                    {% for serie in series %}
-                        <li {{serie.id}}>{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }} </li><br>
-                    {% endfor %}
+                        <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }} </div><br>
                 </ul>
 
+            </div>
+            <div class=\"col-6\">
+                <h2>Modifier les informations de cette serie :</h2><br>
+                {{form_start(formSerie)}}
+                {{form_end(formSerie)}}
             </div>
 
         </div>
