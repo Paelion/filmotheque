@@ -91,8 +91,14 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
         echo "
                 ";
         // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formUpdate"]) || array_key_exists("formUpdate", $context) ? $context["formUpdate"] : (function () { throw new RuntimeError('Variable "formUpdate" does not exist.', 17, $this->source); })()), 'form_end');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["formUpdate"]) || array_key_exists("formUpdate", $context) ? $context["formUpdate"] : (function () { throw new RuntimeError('Variable "formUpdate" does not exist.', 17, $this->source); })()), 'rest');
         echo "
+                <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>
+                ";
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formUpdate"]) || array_key_exists("formUpdate", $context) ? $context["formUpdate"] : (function () { throw new RuntimeError('Variable "formUpdate" does not exist.', 19, $this->source); })()), 'form_end');
+        echo "
+
             </div>
 
         </div>
@@ -115,7 +121,7 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
 
     public function getDebugInfo()
     {
-        return array (  94 => 17,  90 => 16,  83 => 12,  70 => 10,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  99 => 19,  94 => 17,  90 => 16,  83 => 12,  70 => 10,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -136,7 +142,10 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
             <div class=\"col-6\">
                 <h2>Modifier les informations de cette serie :</h2><br>
                 {{form_start(formUpdate)}}
+                {{form_rest(formUpdate)}}
+                <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>
                 {{form_end(formUpdate)}}
+
             </div>
 
         </div>

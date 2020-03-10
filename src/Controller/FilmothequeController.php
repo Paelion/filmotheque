@@ -66,7 +66,7 @@ class FilmothequeController extends AbstractController
             ->getRepository(Series::class)
             ->findAll();
 
-        $categories = $this->getDoctrine()
+        $categorie = $this->getDoctrine()
             ->getRepository(Categories::class)
             ->findAll();
 
@@ -77,11 +77,10 @@ class FilmothequeController extends AbstractController
 
             $serie = $form->getData();
 
-
-            /*$affiche = $serie->getAffiche();
-            $afficheName = md5(uniqid()).'.'.$affiche->guessExtension();
-            $affiche->move($this->getParameter('upload_files') );
-            $serie ->setAffiche($afficheName);*/
+            $categories = $this->getDoctrine()
+                ->getRepository(Categories::class)
+                ->find($request->request->get('categorieId'));
+            $serie->setCategorieId($categories);
 
             $entityManager->persist($serie);
             $entityManager->flush();
@@ -91,7 +90,7 @@ class FilmothequeController extends AbstractController
         return $this->render('filmotheque/series.html.twig', [
             'series' => $serieRepository,
             'formSerie' => $form->createView(),
-            'categories' => $categories
+            'categories' => $categorie
 
         ]);
     }
@@ -116,15 +115,15 @@ class FilmothequeController extends AbstractController
             $serie = $form->getData();
 
 
-            /*$affiche = $serie->getAffiche();
+            $affiche = $serie->getAffiche();
             $afficheName = md5(uniqid()).'.'.$affiche->guessExtension();
             $affiche->move($this->getParameter('upload_files') );
-            $serie ->setAffiche($afficheName);*/
+            $serie ->setAffiche($afficheName);
 
             $entityManager->persist($serie);
             $entityManager->flush();
 
-            $this->redirectToRoute('singleSerie');
+
         }
         return $this->render('filmotheque/singleSerie.html.twig', [
             'series' => $serie,
@@ -165,7 +164,6 @@ class FilmothequeController extends AbstractController
             $entityManager->persist($categorieRepository);
             $entityManager->flush();
 
-            $this->redirectToRoute('categories');
         }
 
 

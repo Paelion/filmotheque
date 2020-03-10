@@ -69,58 +69,73 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             // line 10
             echo "                        <li ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 10), "html", null, true);
-            echo "><a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("singleSerie", ["id" => twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 10)]), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "nom", [], "any", false, false, false, 10)), "html", null, true);
-            echo "<br>Produite de ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeDebut", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
+            echo ">
+                            <a href=\"";
+            // line 11
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("singleSerie", ["id" => twig_get_attribute($this->env, $this->source, $context["serie"], "id", [], "any", false, false, false, 11)]), "html", null, true);
+            echo "\">
+                                ";
+            // line 12
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "nom", [], "any", false, false, false, 12)), "html", null, true);
+            echo "<br>
+                                Produite de ";
+            // line 13
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeDebut", [], "any", false, false, false, 13), "d/m/Y "), "html", null, true);
             echo " à ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeFin", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
-            echo "<br>Nombre de saisons : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "saisons", [], "any", false, false, false, 10), "html", null, true);
-            echo "</a> </li><br>
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "anneeFin", [], "any", false, false, false, 13), "d/m/Y "), "html", null, true);
+            echo "<br>
+                                Nombre de saisons : ";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "saisons", [], "any", false, false, false, 14), "html", null, true);
+            echo "<br>
+                                ";
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["serie"], "affiche", [], "any", false, false, false, 15), "html", null, true);
+            echo "
+                            </a>
+                        </li>
+                        <br>
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['serie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 12
+        // line 20
         echo "                </ul>
 
             </div>
             <div class=\"col-6\">
                 ";
-        // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 16, $this->source); })()), 'form_start');
+        // line 24
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 24, $this->source); })()), 'form_start');
         echo "
                 ";
-        // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 17, $this->source); })()), 'rest');
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 25, $this->source); })()), 'rest');
         echo "
                 <select name=\"categorieId\">
                     ";
-        // line 19
+        // line 27
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 27, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 20
+            // line 28
             echo "                        <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 20), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 28), "html", null, true);
             echo "\">Catégorie : ";
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 20)), "html", null, true);
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 28)), "html", null, true);
             echo "</option>
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
+        // line 30
         echo "                </select><br><br>
                 <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>
                 ";
-        // line 24
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 24, $this->source); })()), 'form_end');
+        // line 32
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 32, $this->source); })()), 'form_end');
         echo "
 
             </div>
@@ -144,7 +159,7 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
 
     public function getDebugInfo()
     {
-        return array (  123 => 24,  119 => 22,  108 => 20,  104 => 19,  99 => 17,  95 => 16,  89 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  138 => 32,  134 => 30,  123 => 28,  119 => 27,  114 => 25,  110 => 24,  104 => 20,  93 => 15,  89 => 14,  83 => 13,  79 => 12,  75 => 11,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -158,7 +173,15 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             <div class=\"col-6\">
                 <ul>
                     {% for serie in series %}
-                        <li {{serie.id}}><a href=\"{{ path('singleSerie', {id: serie.id})}}\">{{serie.nom|capitalize}}<br>Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ serie.saisons }}</a> </li><br>
+                        <li {{serie.id}}>
+                            <a href=\"{{ path('singleSerie', {id: serie.id})}}\">
+                                {{serie.nom|capitalize}}<br>
+                                Produite de {{ serie.anneeDebut | date('d/m/Y ')}} à {{ serie.anneeFin | date('d/m/Y ')}}<br>
+                                Nombre de saisons : {{ serie.saisons }}<br>
+                                {{ serie.affiche }}
+                            </a>
+                        </li>
+                        <br>
                     {% endfor %}
                 </ul>
 

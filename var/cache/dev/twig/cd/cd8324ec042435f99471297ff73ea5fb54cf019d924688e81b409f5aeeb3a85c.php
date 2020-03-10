@@ -60,27 +60,29 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
+                <h2>Nom de la catégorie</h2><br>
                 <ul>
                         <ul ";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()), "id", [], "any", false, false, false, 9), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 10, $this->source); })()), "id", [], "any", false, false, false, 10), "html", null, true);
         echo ">";
-        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()), "nom", [], "any", false, false, false, 9)), "html", null, true);
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 10, $this->source); })()), "nom", [], "any", false, false, false, 10)), "html", null, true);
         echo " </ul> <br>
                 </ul>
                 <a href=\"";
-        // line 11
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("removeCategorie", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 11, $this->source); })()), "id", [], "any", false, false, false, 11)]), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("removeCategorie", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12)]), "html", null, true);
         echo "\"><button class=\"btn btn-danger\">Supprimer cette catégorie</button></a>
             </div>
            <div class=\"col-6\">
+               <h2>Modifier le nom de la catégorie</h2><br>
                 ";
-        // line 14
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 14, $this->source); })()), 'form_start');
+        // line 16
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 16, $this->source); })()), 'form_start');
         echo "
                 ";
-        // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 15, $this->source); })()), 'form_end');
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 17, $this->source); })()), 'form_end');
         echo "
             </div>
         </div>
@@ -103,7 +105,7 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
 
     public function getDebugInfo()
     {
-        return array (  83 => 15,  79 => 14,  73 => 11,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  85 => 17,  81 => 16,  74 => 12,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -115,12 +117,14 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
+                <h2>Nom de la catégorie</h2><br>
                 <ul>
                         <ul {{categories.id}}>{{categories.nom|capitalize}} </ul> <br>
                 </ul>
                 <a href=\"{{path(\"removeCategorie\", {id: categories.id})}}\"><button class=\"btn btn-danger\">Supprimer cette catégorie</button></a>
             </div>
            <div class=\"col-6\">
+               <h2>Modifier le nom de la catégorie</h2><br>
                 {{form_start(formCategories)}}
                 {{form_end(formCategories)}}
             </div>

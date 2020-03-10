@@ -1600,6 +1600,64 @@
         ]
     },
     {
+        "name": "symfony/asset",
+        "version": "v5.0.5",
+        "version_normalized": "5.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/asset.git",
+            "reference": "b9d7f8609849c71e79a0702fdaa453c1329b0c2c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/asset/zipball/b9d7f8609849c71e79a0702fdaa453c1329b0c2c",
+            "reference": "b9d7f8609849c71e79a0702fdaa453c1329b0c2c",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.2.5"
+        },
+        "require-dev": {
+            "symfony/http-foundation": "^4.4|^5.0",
+            "symfony/http-kernel": "^4.4|^5.0"
+        },
+        "suggest": {
+            "symfony/http-foundation": ""
+        },
+        "time": "2020-02-24T15:05:31+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Asset\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Asset Component",
+        "homepage": "https://symfony.com"
+    },
+    {
         "name": "symfony/cache",
         "version": "v5.0.5",
         "version_normalized": "5.0.5.0",

@@ -18,12 +18,8 @@ class SerieType extends AbstractType
             ->add('nom')
             ->add('anneeDebut', DateTimeType::class)
             ->add('anneeFin', DateTimeType::class)
-            //->add('affiche', FileType::class)
-            ->add('saisons')
-        ->add('Envoyer', SubmitType::class, [
-        'attr' => ['class' => 'btn btn-primary']
-    ]);
-            //->add('categorieId');
+            ->add('affiche', FileType::class)
+            ->add('saisons');
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -17,7 +17,7 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('Envoyer', SubmitType::class, [
+            ->add('Ajouter', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary']
             ]);
     }
