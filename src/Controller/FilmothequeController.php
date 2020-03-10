@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Categories;
 use App\Entity\Series;
+use App\Form\CategorieType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\SerieType;
@@ -17,24 +19,38 @@ class FilmothequeController extends AbstractController
     /**
      * @Route("/", name="filmotheque")
      */
-    public function index()
+    public function index(Request $request, EntityManagerInterface $entityManager)
     {
 
         $serieRepository = $this->getDoctrine()
             ->getRepository(Series::class)
             ->findAll();
 
-        return $this->render('filmotheque/index.html.twig', [
-            'series' => $serieRepository,
 
-        ]);
-    }
 
-    /**
-     * @Route("/", name="accueil")
-     */
+        $categorie = new Categories();
 
-    public function accueil(){
+        $categorieRepository = $this->getDoctrine()
+            ->getRepository(Categories::class)
+            ->findAll();
+
+        $form = $this->createForm(CategorieType::class, $categorie);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $categorie = $form->getData();
+
+
+            $entityManager->persist($categorie);
+            $entityManager->flush();
+        }
+
+            return $this->render('filmotheque/index.html.twig', [
+                'series' => $serieRepository,
+                'categories' => $categorieRepository,
+                'formCategories' => $form->createView()
+            ]);
 
     }
 
@@ -48,6 +64,10 @@ class FilmothequeController extends AbstractController
 
         $serieRepository = $this->getDoctrine()
             ->getRepository(Series::class)
+            ->findAll();
+
+        $categories = $this->getDoctrine()
+            ->getRepository(Categories::class)
             ->findAll();
 
         $form = $this->createForm(SerieType::class, $serie);
@@ -70,7 +90,8 @@ class FilmothequeController extends AbstractController
         }
         return $this->render('filmotheque/series.html.twig', [
             'series' => $serieRepository,
-            'formSerie' => $form->createView()
+            'formSerie' => $form->createView(),
+            'categories' => $categories
 
         ]);
     }
@@ -110,5 +131,18 @@ class FilmothequeController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/categories", name="categories")
+     */
+
+    public function categories(Request $request, EntityManagerInterface $entityManager){
+
+
+
+
+
+    }
+
 
 }

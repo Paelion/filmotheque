@@ -60,20 +60,62 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
-
-
-                    <p> Il y a ";
-        // line 10
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })())), "html", null, true);
+                <h2>Séries</h2><br>
+                <p> Il y a ";
+        // line 9
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 9, $this->source); })())), "html", null, true);
         echo " series dans la filmothèque.</p>
-
                 <a href=\"";
-        // line 12
+        // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("series");
         echo "\">
                     <button class=\"btn btn-warning\">Page Series</button>
                 </a>
             </div>
+            <div class=\"col-6\">
+                <h2>Categories : </h2><br>
+                <p> Il y a ";
+        // line 16
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 16, $this->source); })())), "html", null, true);
+        echo " categories disponibles.</p><hr>
+                <div>
+                    <p style=\"font-size: 22px;\">Ajouter une categorie :</p>
+                    ";
+        // line 19
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 19, $this->source); })()), 'form_start');
+        echo "
+                    ";
+        // line 20
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 20, $this->source); })()), 'form_end');
+        echo "
+                </div>
+
+                <hr>
+                <ul>
+                    ";
+        // line 25
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 25, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
+            // line 26
+            echo "                        <li ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 26), "html", null, true);
+            echo "><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categories");
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 26)), "html", null, true);
+            echo "  ";
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "serie", [], "any", false, false, false, 26)), "html", null, true);
+            echo "</a> </li><br>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 28
+        echo "                </ul>
+            </div>
+
         </div>
     </div>
 ";
@@ -94,7 +136,7 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
 
     public function getDebugInfo()
     {
-        return array (  72 => 12,  67 => 10,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  116 => 28,  101 => 26,  97 => 25,  89 => 20,  85 => 19,  79 => 16,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -106,14 +148,29 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
     <div class=\"container mt-5\">
         <div class=\"row\">
             <div class=\"col-6\">
-
-
-                    <p> Il y a {{ series |length }} series dans la filmothèque.</p>
-
+                <h2>Séries</h2><br>
+                <p> Il y a {{ series |length }} series dans la filmothèque.</p>
                 <a href=\"{{ path('series') }}\">
                     <button class=\"btn btn-warning\">Page Series</button>
                 </a>
             </div>
+            <div class=\"col-6\">
+                <h2>Categories : </h2><br>
+                <p> Il y a {{ categories |length }} categories disponibles.</p><hr>
+                <div>
+                    <p style=\"font-size: 22px;\">Ajouter une categorie :</p>
+                    {{ form_start(formCategories) }}
+                    {{ form_end(formCategories) }}
+                </div>
+
+                <hr>
+                <ul>
+                    {% for categorie in categories %}
+                        <li {{ categorie.id }}><a href=\"{{ path('categories') }}\">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
+                    {% endfor %}
+                </ul>
+            </div>
+
         </div>
     </div>
 {% endblock %}

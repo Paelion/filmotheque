@@ -58,37 +58,25 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 <body>
 <header>
     <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+        <a class=\"navbar-brand\" href=\"";
+        // line 12
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("filmotheque");
+        echo "\">Bienvenu dans le filmothèque</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
-        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-            <ul class=\"navbar-nav\">
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"";
-        // line 18
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("filmotheque");
-        echo "\">Séries</a>
-                </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"";
-        // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
-        echo "\">Catégories</a>
-                </li>
-            </ul>
-        </div>
     </nav>
 </header>
 <main>
     ";
-        // line 28
+        // line 19
         $this->displayBlock('body', $context, $blocks);
-        // line 29
+        // line 20
         echo "</main>
 ";
-        // line 30
+        // line 21
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 31
+        // line 22
         echo "</body>
 </html>
 ";
@@ -122,7 +110,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 28
+    // line 19
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -134,7 +122,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 30
+    // line 21
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -158,7 +146,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     public function getDebugInfo()
     {
-        return array (  138 => 30,  126 => 28,  114 => 7,  101 => 5,  92 => 31,  90 => 30,  87 => 29,  85 => 28,  75 => 21,  69 => 18,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
+        return array (  126 => 21,  114 => 19,  102 => 7,  89 => 5,  80 => 22,  78 => 21,  75 => 20,  73 => 19,  63 => 12,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -174,19 +162,10 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 <body>
 <header>
     <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+        <a class=\"navbar-brand\" href=\"{{ path(\"filmotheque\")}}\">Bienvenu dans le filmothèque</a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
-        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-            <ul class=\"navbar-nav\">
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{path('filmotheque')}}\">Séries</a>
-                </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{path('accueil')}}\">Catégories</a>
-                </li>
-            </ul>
-        </div>
     </nav>
 </header>
 <main>

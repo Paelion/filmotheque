@@ -5,14 +5,29 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-6">
-
-
-                    <p> Il y a {{ series |length }} series dans la filmothèque.</p>
-
+                <h2>Séries</h2><br>
+                <p> Il y a {{ series |length }} series dans la filmothèque.</p>
                 <a href="{{ path('series') }}">
                     <button class="btn btn-warning">Page Series</button>
                 </a>
             </div>
+            <div class="col-6">
+                <h2>Categories : </h2><br>
+                <p> Il y a {{ categories |length }} categories disponibles.</p><hr>
+                <div>
+                    <p style="font-size: 22px;">Ajouter une categorie :</p>
+                    {{ form_start(formCategories) }}
+                    {{ form_end(formCategories) }}
+                </div>
+
+                <hr>
+                <ul>
+                    {% for categorie in categories %}
+                        <li {{ categorie.id }}><a href="{{ path('categories') }}">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
+                    {% endfor %}
+                </ul>
+            </div>
+
         </div>
     </div>
 {% endblock %}

@@ -8,11 +8,9 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
-        '/' => [
-            [['_route' => 'filmotheque', '_controller' => 'App\\Controller\\FilmothequeController::index'], null, null, null, false, false, null],
-            [['_route' => 'accueil', '_controller' => 'App\\Controller\\FilmothequeController::accueil'], null, null, null, false, false, null],
-        ],
+        '/' => [[['_route' => 'filmotheque', '_controller' => 'App\\Controller\\FilmothequeController::index'], null, null, null, false, false, null]],
         '/series' => [[['_route' => 'series', '_controller' => 'App\\Controller\\FilmothequeController::series'], null, null, null, false, false, null]],
+        '/categories' => [[['_route' => 'categories', '_controller' => 'App\\Controller\\FilmothequeController::categories'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

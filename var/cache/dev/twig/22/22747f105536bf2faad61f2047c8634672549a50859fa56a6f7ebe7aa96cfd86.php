@@ -96,8 +96,33 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
         echo "
                 ";
         // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 17, $this->source); })()), 'form_end');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 17, $this->source); })()), 'rest');
         echo "
+                <select name=\"categorieId\">
+                    ";
+        // line 19
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 19, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
+            // line 20
+            echo "                        <option value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 20), "html", null, true);
+            echo "\">Catégorie : ";
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 20)), "html", null, true);
+            echo "</option>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 22
+        echo "                </select><br><br>
+                <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>
+                ";
+        // line 24
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 24, $this->source); })()), 'form_end');
+        echo "
+
             </div>
         </div>
     </div>
@@ -119,7 +144,7 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
 
     public function getDebugInfo()
     {
-        return array (  99 => 17,  95 => 16,  89 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  123 => 24,  119 => 22,  108 => 20,  104 => 19,  99 => 17,  95 => 16,  89 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -140,7 +165,15 @@ class __TwigTemplate_90a55453c0b8e2ddd56176ebef31f501ff8467bd4398db4bee85c9d037e
             </div>
             <div class=\"col-6\">
                 {{form_start(formSerie)}}
+                {{form_rest(formSerie)}}
+                <select name=\"categorieId\">
+                    {% for categorie in categories %}
+                        <option value=\"{{categorie.id}}\">Catégorie : {{ categorie.nom |capitalize}}</option>
+                    {% endfor %}
+                </select><br><br>
+                <button type=\"submit\" class=\"btn btn-primary\">Envoyer</button>
                 {{form_end(formSerie)}}
+
             </div>
         </div>
     </div>

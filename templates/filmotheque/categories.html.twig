@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <ul>
+                    {% for categorie in categories %}
+                        <li {{categorie.id}}>{{categorie.nom|capitalize}} </li><br>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="col-6">
+                {{form_start(formCategories)}}
+                {{form_end(formCategories)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}
