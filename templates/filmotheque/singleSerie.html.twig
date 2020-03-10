@@ -9,12 +9,12 @@
                 <ul>
                         <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }}<br>{{ series.categorieId }} </div><br>
                 </ul>
-
+                <a href="{{path("remove", {id: series.id})}}"><button class="btn btn-danger">Supprimer</button></a>
             </div>
             <div class="col-6">
                 <h2>Modifier les informations de cette serie :</h2><br>
-                {{form_start(formSerie)}}
-                {{form_end(formSerie)}}
+                {{form_start(formUpdate)}}
+                {{form_end(formUpdate)}}
             </div>
 
         </div>

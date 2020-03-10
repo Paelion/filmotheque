@@ -96,6 +96,7 @@ class FilmothequeController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/singleSerie/{{id}}", name="singleSerie")
      */
@@ -127,22 +128,55 @@ class FilmothequeController extends AbstractController
         }
         return $this->render('filmotheque/singleSerie.html.twig', [
             'series' => $serie,
-            'formSerie' => $form->createView()
+            'formUpdate' => $form->createView()
 
         ]);
     }
 
     /**
-     * @Route("/categories", name="categories")
+     * @Route("/serie/remove/{id}", name="remove")
      */
+    public function removeSeries($id, EntityManagerInterface $entityManager){
+        $serie = $this->getDoctrine()->getRepository(Series::class)->find($id);
 
-    public function categories(Request $request, EntityManagerInterface $entityManager){
+        $entityManager->remove($serie);
+        $entityManager->flush();
 
-
-
-
-
+        return $this->redirectToRoute('series');
     }
 
+    /**
+     * @Route("/categories/{{id}}", name="categories")
+     */
+    public function categories ($id, Request $request, EntityManagerInterface $entityManager){
+
+        $categorieRepository = $this->getDoctrine()
+            ->getRepository(Categories::class)
+            ->find($id);
+
+        $form = $this->createForm(CategorieType::class, $categorieRepository);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $categorieRepository = $form->getData();
+
+
+            $entityManager->persist($categorieRepository);
+            $entityManager->flush();
+
+            $this->redirectToRoute('categories');
+        }
+
+
+
+            $entityManager->persist($categorieRepository);
+            $entityManager->flush();
+
+        return $this->render('filmotheque/categories.html.twig', [
+            'categories' => $categorieRepository,
+            'formCategories' => $form->createView()
+        ]);
+    }
 
 }

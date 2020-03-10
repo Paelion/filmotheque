@@ -6,13 +6,11 @@
         <div class="row">
             <div class="col-6">
                 <ul>
-                    {% for categorie in categories %}
-                        <li {{categorie.id}}>{{categorie.nom|capitalize}} </li><br>
-                    {% endfor %}
+                        <ul {{categories.id}}>{{categories.nom|capitalize}} </ul> <br>
                 </ul>
 
             </div>
-            <div class="col-6">
+           <div class="col-6">
                 {{form_start(formCategories)}}
                 {{form_end(formCategories)}}
             </div>

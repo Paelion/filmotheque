@@ -74,19 +74,24 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "anneeFin", [], "any", false, false, false, 10), "d/m/Y "), "html", null, true);
         echo "<br>Nombre de saisons : ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "saisons", [], "any", false, false, false, 10), "html", null, true);
+        echo "<br>";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 10, $this->source); })()), "categorieId", [], "any", false, false, false, 10), "html", null, true);
         echo " </div><br>
                 </ul>
-
+                <a href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remove", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12)]), "html", null, true);
+        echo "\"><button class=\"btn btn-danger\">Supprimer</button></a>
             </div>
             <div class=\"col-6\">
                 <h2>Modifier les informations de cette serie :</h2><br>
                 ";
         // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 16, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formUpdate"]) || array_key_exists("formUpdate", $context) ? $context["formUpdate"] : (function () { throw new RuntimeError('Variable "formUpdate" does not exist.', 16, $this->source); })()), 'form_start');
         echo "
                 ";
         // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSerie"]) || array_key_exists("formSerie", $context) ? $context["formSerie"] : (function () { throw new RuntimeError('Variable "formSerie" does not exist.', 17, $this->source); })()), 'form_end');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formUpdate"]) || array_key_exists("formUpdate", $context) ? $context["formUpdate"] : (function () { throw new RuntimeError('Variable "formUpdate" does not exist.', 17, $this->source); })()), 'form_end');
         echo "
             </div>
 
@@ -110,7 +115,7 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
 
     public function getDebugInfo()
     {
-        return array (  89 => 17,  85 => 16,  70 => 10,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  94 => 17,  90 => 16,  83 => 12,  70 => 10,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -124,14 +129,14 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
             <div class=\"col-6\">
                 <h2>Plus de détails sur le serie : {{series.nom|capitalize}}</h2><br>
                 <ul>
-                        <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }} </div><br>
+                        <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }}<br>{{ series.categorieId }} </div><br>
                 </ul>
-
+                <a href=\"{{path(\"remove\", {id: series.id})}}\"><button class=\"btn btn-danger\">Supprimer</button></a>
             </div>
             <div class=\"col-6\">
                 <h2>Modifier les informations de cette serie :</h2><br>
-                {{form_start(formSerie)}}
-                {{form_end(formSerie)}}
+                {{form_start(formUpdate)}}
+                {{form_end(formUpdate)}}
             </div>
 
         </div>

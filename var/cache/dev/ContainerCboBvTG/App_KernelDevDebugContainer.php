@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerTj0hdqP;
+namespace ContainerCboBvTG;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -38,7 +38,6 @@ class App_KernelDevDebugContainer extends Container
             'kernel' => true,
         ];
         $this->methodMap = [
-            'App\\Controller\\CategoriesController' => 'getCategoriesControllerService',
             'App\\Controller\\FilmothequeController' => 'getFilmothequeControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
@@ -150,23 +149,6 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the public 'App\Controller\CategoriesController' shared autowired service.
-     *
-     * @return \App\Controller\CategoriesController
-     */
-    protected function getCategoriesControllerService()
-    {
-        include_once \dirname(__DIR__, 4).'/vendor/symfony/framework-bundle/Controller/AbstractController.php';
-        include_once \dirname(__DIR__, 4).'/src/Controller/CategoriesController.php';
-
-        $this->services['App\\Controller\\CategoriesController'] = $instance = new \App\Controller\CategoriesController();
-
-        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\CategoriesController', $this));
-
-        return $instance;
-    }
-
-    /**
      * Gets the public 'App\Controller\FilmothequeController' shared autowired service.
      *
      * @return \App\Controller\FilmothequeController
@@ -178,7 +160,25 @@ class App_KernelDevDebugContainer extends Container
 
         $this->services['App\\Controller\\FilmothequeController'] = $instance = new \App\Controller\FilmothequeController();
 
-        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\FilmothequeController', $this));
+        $instance->setContainer((new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'doctrine' => ['services', 'doctrine', 'getDoctrineService', false],
+            'form.factory' => ['services', 'form.factory', 'getForm_FactoryService', false],
+            'http_kernel' => ['services', 'http_kernel', 'getHttpKernelService', false],
+            'parameter_bag' => ['privates', 'parameter_bag', 'getParameterBagService', false],
+            'request_stack' => ['services', 'request_stack', 'getRequestStackService', false],
+            'router' => ['services', 'router', 'getRouterService', false],
+            'session' => ['services', 'session', 'getSessionService', false],
+            'twig' => ['services', 'twig', 'getTwigService', false],
+        ], [
+            'doctrine' => '?',
+            'form.factory' => '?',
+            'http_kernel' => '?',
+            'parameter_bag' => '?',
+            'request_stack' => '?',
+            'router' => '?',
+            'session' => '?',
+            'twig' => '?',
+        ]))->withContext('App\\Controller\\FilmothequeController', $this));
 
         return $instance;
     }
@@ -1052,6 +1052,28 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.service_locator.2cTjAqd' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_2cTjAqdService()
+    {
+        return $this->privates['.service_locator.2cTjAqd'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\FilmothequeController::categories' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
+            'App\\Controller\\FilmothequeController::index' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
+            'App\\Controller\\FilmothequeController::removeSeries' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
+            'App\\Controller\\FilmothequeController::series' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
+            'App\\Controller\\FilmothequeController::singleSerie' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
+        ], [
+            'App\\Controller\\FilmothequeController::categories' => '?',
+            'App\\Controller\\FilmothequeController::index' => '?',
+            'App\\Controller\\FilmothequeController::removeSeries' => '?',
+            'App\\Controller\\FilmothequeController::series' => '?',
+            'App\\Controller\\FilmothequeController::singleSerie' => '?',
+        ]);
+    }
+
+    /**
      * Gets the private '.service_locator.D6XybyG' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -1062,54 +1084,6 @@ class App_KernelDevDebugContainer extends Container
             'entityManager' => ['services', 'doctrine.orm.default_entity_manager', 'getDoctrine_Orm_DefaultEntityManagerService', false],
         ], [
             'entityManager' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.WOkmbv.' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_WOkmbv_Service()
-    {
-        return $this->privates['.service_locator.WOkmbv.'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\CategoriesController::index' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
-            'App\\Controller\\FilmothequeController::index' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
-            'App\\Controller\\FilmothequeController::series' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
-            'App\\Controller\\FilmothequeController::singleSerie' => ['privates', '.service_locator.D6XybyG', 'get_ServiceLocator_D6XybyGService', false],
-        ], [
-            'App\\Controller\\CategoriesController::index' => '?',
-            'App\\Controller\\FilmothequeController::index' => '?',
-            'App\\Controller\\FilmothequeController::series' => '?',
-            'App\\Controller\\FilmothequeController::singleSerie' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.pNNo5z3' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_PNNo5z3Service()
-    {
-        return $this->privates['.service_locator.pNNo5z3'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'doctrine' => ['services', 'doctrine', 'getDoctrineService', false],
-            'form.factory' => ['services', 'form.factory', 'getForm_FactoryService', false],
-            'http_kernel' => ['services', 'http_kernel', 'getHttpKernelService', false],
-            'parameter_bag' => ['privates', 'parameter_bag', 'getParameterBagService', false],
-            'request_stack' => ['services', 'request_stack', 'getRequestStackService', false],
-            'router' => ['services', 'router', 'getRouterService', false],
-            'session' => ['services', 'session', 'getSessionService', false],
-            'twig' => ['services', 'twig', 'getTwigService', false],
-        ], [
-            'doctrine' => '?',
-            'form.factory' => '?',
-            'http_kernel' => '?',
-            'parameter_bag' => '?',
-            'request_stack' => '?',
-            'router' => '?',
-            'session' => '?',
-            'twig' => '?',
         ]);
     }
 
@@ -1767,7 +1741,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.WOkmbv.'] ?? $this->get_ServiceLocator_WOkmbv_Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.2cTjAqd'] ?? $this->get_ServiceLocator_2cTjAqdService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -1809,7 +1783,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.WOkmbv.'] ?? $this->get_ServiceLocator_WOkmbv_Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.2cTjAqd'] ?? $this->get_ServiceLocator_2cTjAqdService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**

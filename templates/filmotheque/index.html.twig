@@ -23,7 +23,7 @@
                 <hr>
                 <ul>
                     {% for categorie in categories %}
-                        <li {{ categorie.id }}><a href="{{ path('categories') }}">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
+                        <li {{ categorie.id }}><a href="{{ path('categories', {id: categorie.id})}}">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
                     {% endfor %}
                 </ul>
             </div>

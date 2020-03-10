@@ -101,7 +101,7 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
             echo "                        <li ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 26), "html", null, true);
             echo "><a href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categories");
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("categories", ["id" => twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 26)]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 26)), "html", null, true);
             echo "  ";
@@ -166,7 +166,7 @@ class __TwigTemplate_37c3edb963643c69dca14a625d5cf11e9045b53cc6a6de4b3e52124c2a1
                 <hr>
                 <ul>
                     {% for categorie in categories %}
-                        <li {{ categorie.id }}><a href=\"{{ path('categories') }}\">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
+                        <li {{ categorie.id }}><a href=\"{{ path('categories', {id: categorie.id})}}\">{{ categorie.nom|capitalize }}  {{categorie.serie|length}}</a> </li><br>
                     {% endfor %}
                 </ul>
             </div>

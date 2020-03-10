@@ -61,34 +61,23 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
         <div class=\"row\">
             <div class=\"col-6\">
                 <ul>
-                    ";
+                        <ul ";
         // line 9
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 10
-            echo "                        <li ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 10), "html", null, true);
-            echo ">";
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "nom", [], "any", false, false, false, 10)), "html", null, true);
-            echo " </li><br>
-                    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 12
-        echo "                </ul>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()), "id", [], "any", false, false, false, 9), "html", null, true);
+        echo ">";
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()), "nom", [], "any", false, false, false, 9)), "html", null, true);
+        echo " </ul> <br>
+                </ul>
 
             </div>
-            <div class=\"col-6\">
+           <div class=\"col-6\">
                 ";
-        // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 16, $this->source); })()), 'form_start');
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 14, $this->source); })()), 'form_start');
         echo "
                 ";
-        // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 17, $this->source); })()), 'form_end');
+        // line 15
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formCategories"]) || array_key_exists("formCategories", $context) ? $context["formCategories"] : (function () { throw new RuntimeError('Variable "formCategories" does not exist.', 15, $this->source); })()), 'form_end');
         echo "
             </div>
         </div>
@@ -111,7 +100,7 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
 
     public function getDebugInfo()
     {
-        return array (  91 => 17,  87 => 16,  81 => 12,  70 => 10,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  80 => 15,  76 => 14,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -124,13 +113,11 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
         <div class=\"row\">
             <div class=\"col-6\">
                 <ul>
-                    {% for categorie in categories %}
-                        <li {{categorie.id}}>{{categorie.nom|capitalize}} </li><br>
-                    {% endfor %}
+                        <ul {{categories.id}}>{{categories.nom|capitalize}} </ul> <br>
                 </ul>
 
             </div>
-            <div class=\"col-6\">
+           <div class=\"col-6\">
                 {{form_start(formCategories)}}
                 {{form_end(formCategories)}}
             </div>
