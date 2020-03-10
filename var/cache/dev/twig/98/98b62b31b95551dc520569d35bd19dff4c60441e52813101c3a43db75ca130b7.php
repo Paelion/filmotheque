@@ -81,7 +81,7 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
                 <a href=\"";
         // line 12
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remove", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["series"]) || array_key_exists("series", $context) ? $context["series"] : (function () { throw new RuntimeError('Variable "series" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12)]), "html", null, true);
-        echo "\"><button class=\"btn btn-danger\">Supprimer</button></a>
+        echo "\"><button class=\"btn btn-danger\">Supprimer cette série</button></a>
             </div>
             <div class=\"col-6\">
                 <h2>Modifier les informations de cette serie :</h2><br>
@@ -131,7 +131,7 @@ class __TwigTemplate_39f59257654525b31012e2cc4cf6661f8ef0b785fb34cd69cb04e62f908
                 <ul>
                         <div>{{series.nom|capitalize}}<br>Produite de {{ series.anneeDebut | date('d/m/Y ')}} à {{ series.anneeFin | date('d/m/Y ')}}<br>Nombre de saisons : {{ series.saisons }}<br>{{ series.categorieId }} </div><br>
                 </ul>
-                <a href=\"{{path(\"remove\", {id: series.id})}}\"><button class=\"btn btn-danger\">Supprimer</button></a>
+                <a href=\"{{path(\"remove\", {id: series.id})}}\"><button class=\"btn btn-danger\">Supprimer cette série</button></a>
             </div>
             <div class=\"col-6\">
                 <h2>Modifier les informations de cette serie :</h2><br>

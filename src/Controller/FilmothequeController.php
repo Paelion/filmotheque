@@ -179,4 +179,16 @@ class FilmothequeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/removeCategories/{id}", name="removeCategorie")
+     */
+    public function removeCategorie($id, EntityManagerInterface $entityManager){
+        $categorie = $this->getDoctrine()->getRepository(Categories::class)->find($id);
+
+        $entityManager->remove($categorie);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('filmotheque');
+    }
+
 }

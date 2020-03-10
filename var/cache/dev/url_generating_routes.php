@@ -9,4 +9,5 @@ return [
     'singleSerie' => [['id'], ['_controller' => 'App\\Controller\\FilmothequeController::singleSerie'], [], [['text', '}'], ['variable', '', '[^/]+', 'id', true], ['text', '/singleSerie/{']], [], []],
     'remove' => [['id'], ['_controller' => 'App\\Controller\\FilmothequeController::removeSeries'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/serie/remove']], [], []],
     'categories' => [['id'], ['_controller' => 'App\\Controller\\FilmothequeController::categories'], [], [['text', '}'], ['variable', '', '[^/]+', 'id', true], ['text', '/categories/{']], [], []],
+    'removeCategorie' => [['id'], ['_controller' => 'App\\Controller\\FilmothequeController::removeCategorie'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/removeCategories']], [], []],
 ];

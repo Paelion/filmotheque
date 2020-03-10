@@ -65,18 +65,28 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("series");
+        echo "\">Séries</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
 <main>
     ";
-        // line 19
+        // line 26
         $this->displayBlock('body', $context, $blocks);
-        // line 20
+        // line 27
         echo "</main>
 ";
-        // line 21
+        // line 28
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 22
+        // line 29
         echo "</body>
 </html>
 ";
@@ -110,7 +120,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 19
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -122,7 +132,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     }
 
-    // line 21
+    // line 28
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -146,7 +156,7 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
 
     public function getDebugInfo()
     {
-        return array (  126 => 21,  114 => 19,  102 => 7,  89 => 5,  80 => 22,  78 => 21,  75 => 20,  73 => 19,  63 => 12,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
+        return array (  136 => 28,  124 => 26,  112 => 7,  99 => 5,  90 => 29,  88 => 28,  85 => 27,  83 => 26,  73 => 19,  63 => 12,  57 => 8,  55 => 7,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -166,6 +176,13 @@ class __TwigTemplate_200714ba207daa047a3449b7c4653b600232971604cf45058b9191e1d5c
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"{{path('series')}}\">Séries</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
 <main>

@@ -19,14 +19,16 @@ return [
                     .'|erie/remove/([^/]++)(*:96)'
                 .')'
                 .'|/categories/\\{([^/]+)\\}(*:127)'
+                .'|/removeCategories/([^/]++)(*:161)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
         35 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
         69 => [[['_route' => 'singleSerie', '_controller' => 'App\\Controller\\FilmothequeController::singleSerie'], ['id'], null, null, false, false, null]],
         96 => [[['_route' => 'remove', '_controller' => 'App\\Controller\\FilmothequeController::removeSeries'], ['id'], null, null, false, true, null]],
-        127 => [
-            [['_route' => 'categories', '_controller' => 'App\\Controller\\FilmothequeController::categories'], ['id'], null, null, false, false, null],
+        127 => [[['_route' => 'categories', '_controller' => 'App\\Controller\\FilmothequeController::categories'], ['id'], null, null, false, false, null]],
+        161 => [
+            [['_route' => 'removeCategorie', '_controller' => 'App\\Controller\\FilmothequeController::removeCategorie'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

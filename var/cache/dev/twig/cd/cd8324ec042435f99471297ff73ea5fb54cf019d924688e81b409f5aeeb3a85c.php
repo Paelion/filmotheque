@@ -68,7 +68,10 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
         echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 9, $this->source); })()), "nom", [], "any", false, false, false, 9)), "html", null, true);
         echo " </ul> <br>
                 </ul>
-
+                <a href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("removeCategorie", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 11, $this->source); })()), "id", [], "any", false, false, false, 11)]), "html", null, true);
+        echo "\"><button class=\"btn btn-danger\">Supprimer cette catégorie</button></a>
             </div>
            <div class=\"col-6\">
                 ";
@@ -100,7 +103,7 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
 
     public function getDebugInfo()
     {
-        return array (  80 => 15,  76 => 14,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  83 => 15,  79 => 14,  73 => 11,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -115,7 +118,7 @@ class __TwigTemplate_a73d9aea8788309dcfbac4b2eaa4bcc645e38aeb24e1f5a521ae6939dbe
                 <ul>
                         <ul {{categories.id}}>{{categories.nom|capitalize}} </ul> <br>
                 </ul>
-
+                <a href=\"{{path(\"removeCategorie\", {id: categories.id})}}\"><button class=\"btn btn-danger\">Supprimer cette catégorie</button></a>
             </div>
            <div class=\"col-6\">
                 {{form_start(formCategories)}}
